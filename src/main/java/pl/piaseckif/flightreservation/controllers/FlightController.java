@@ -21,11 +21,18 @@ public class FlightController {
     @Autowired
     FlightRepository flightRepository;
 
+
+    //TO-DO: Add Date of departure to search parameters
     @RequestMapping("findFlights")
     public String findFlights(@RequestParam("from") String from, @RequestParam("to") String to,
                               ModelMap modelMap) {
         List<Flight> flights = flightRepository.findFlights(from, to);
         modelMap.addAttribute("flights", flights);
         return "displayFlights";
+    }
+
+    @RequestMapping("admin/showAddFlight")
+    public String showAddFlight() {
+        return "addFlight";
     }
 }
