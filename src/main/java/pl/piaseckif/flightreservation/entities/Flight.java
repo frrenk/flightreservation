@@ -2,6 +2,8 @@ package pl.piaseckif.flightreservation.entities;
 
 import javax.persistence.Entity;
 import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,7 +14,7 @@ public class Flight  extends AbstractEntity {
     private String operatingAirlines;
     private String departureCity;
     private String arrivalCity;
-    private Date dateOfDeparture;
+    private LocalDate dateOfDeparture;
     private Timestamp estimatedDepartureTime;
 
 
@@ -48,11 +50,11 @@ public class Flight  extends AbstractEntity {
         this.arrivalCity = arrivalCity;
     }
 
-    public Date getDateOfDeparture() {
+    public LocalDate getDateOfDeparture() {
         return dateOfDeparture;
     }
 
-    public void setDateOfDeparture(Date dateOfDeparture) {
+    public void setDateOfDeparture(LocalDate dateOfDeparture) {
         this.dateOfDeparture = dateOfDeparture;
     }
 
@@ -62,5 +64,17 @@ public class Flight  extends AbstractEntity {
 
     public void setEstimatedDepartureTime(Timestamp estimatedDepartureTime) {
         this.estimatedDepartureTime = estimatedDepartureTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightNumber='" + flightNumber + '\'' +
+                ", operatingAirlines='" + operatingAirlines + '\'' +
+                ", departureCity='" + departureCity + '\'' +
+                ", arrivalCity='" + arrivalCity + '\'' +
+                ", dateOfDeparture=" + dateOfDeparture +
+                ", estimatedDepartureTime=" + estimatedDepartureTime +
+                '}';
     }
 }
